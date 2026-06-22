@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>世界杯 · 专题背景 | 可信站点介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', Helvetica, Arial, sans-serif;
+      background: linear-gradient(145deg, #faebd7 0%, #f5deb3 40%, #f4c98f 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem 1rem;
+      line-height: 1.7;
+      color: #2c1e0f;
+    }
+
+    .magazine-card {
+      max-width: 820px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(2px);
+      border-radius: 32px;
+      box-shadow: 0 20px 40px -12px rgba(140, 80, 30, 0.25), 0 8px 16px rgba(0,0,0,0.04);
+      padding: 2.8rem 2.5rem 2.8rem 2.5rem;
+      transition: all 0.25s ease;
+    }
+
+    @media (max-width: 540px) {
+      .magazine-card {
+        padding: 2rem 1.2rem 2rem 1.2rem;
+        border-radius: 28px;
+      }
+    }
+
+    /* hero 横幅 */
+    .hero-strip {
+      background: linear-gradient(95deg, #b5651e, #9a5c1c 35%, #c77d2a 70%, #b45b1a);
+      margin: -1.2rem -1.8rem 2.2rem -1.8rem;
+      padding: 1.2rem 2rem;
+      border-radius: 40px 40px 40px 40px;
+      color: #fcf3e2;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.6rem 0.4rem;
+      box-shadow: inset 0 -2px 6px rgba(0,0,0,0.05);
+    }
+
+    .hero-strip h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-right: 0.5rem;
+      display: inline-block;
+    }
+
+    .hero-strip .sub {
+      font-size: 1.05rem;
+      font-weight: 400;
+      opacity: 0.85;
+      margin-left: auto;
+    }
+
+    @media (max-width: 460px) {
+      .hero-strip {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+        margin-left: -0.8rem;
+        margin-right: -0.8rem;
+        padding: 1rem 1.5rem;
+      }
+      .hero-strip h1 {
+        font-size: 1.8rem;
+      }
+      .hero-strip .sub {
+        margin-left: 0;
+      }
+    }
+
+    /* 背景说明块 */
+    .context-box {
+      background: #fef7ed;
+      border-left: 4px solid #b5651e;
+      padding: 1.2rem 1.6rem;
+      margin-bottom: 2rem;
+      border-radius: 0 20px 20px 0;
+      font-size: 0.98rem;
+      color: #3d2b19;
+    }
+
+    .context-box strong {
+      color: #7a4c1d;
+    }
+
+    /* 三段自然介绍 */
+    .section {
+      margin-bottom: 1.8rem;
+    }
+
+    .section h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.2rem;
+      border-bottom: 2px solid #e2c9a6;
+      display: inline-block;
+      color: #4f321a;
+      letter-spacing: 0.02em;
+    }
+
+    .section p {
+      margin: 0.6rem 0 0.4rem 0;
+      text-align: justify;
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .inset-link {
+      color: #b55f1e;
+      text-decoration: none;
+      font-weight: 500;
+      background: #fef1de;
+      padding: 0.08rem 0.5rem 0.15rem 0.5rem;
+      border-radius: 40px;
+      transition: background 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
+      box-shadow: 0 0 0 1px rgba(181, 101, 30, 0.2);
+    }
+
+    .inset-link:hover {
+      background: #f3dbbc;
+      box-shadow: 0 0 0 2px rgba(181, 101, 30, 0.3);
+    }
+
+    .inset-link:focus-visible {
+      outline: 2px solid #9a5c1c;
+      outline-offset: 2px;
+    }
+
+    /* 特点与场景卡片式列表 */
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin: 1.8rem 0 2rem 0;
+    }
+
+    .feature-item {
+      flex: 1 1 180px;
+      background: #fffbf5;
+      padding: 1rem 1.2rem;
+      border-radius: 28px;
+      border: 1px solid #ecdcc4;
+      box-shadow: 2px 4px 8px rgba(100, 60, 20, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 4px 8px 12px rgba(120, 70, 20, 0.1);
+    }
+
+    .feature-item h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #7a4c1d;
+      margin-bottom: 0.2rem;
+      border-left: 4px solid #c88a44;
+      padding-left: 0.5rem;
+    }
+
+    .feature-item p {
+      font-size: 0.92rem;
+      color: #3d2e1b;
+      margin-top: 0.2rem;
+    }
+
+    /* FAQ 摘要 */
+    .faq-preview {
+      background: #faf1e0;
+      padding: 1.2rem 1.6rem;
+      border-radius: 24px;
+      margin: 1.8rem 0 1.6rem 0;
+    }
+
+    .faq-preview summary {
+      font-weight: 600;
+      color: #4f321a;
+      cursor: pointer;
+      padding: 0.1rem 0;
+    }
+
+    .faq-preview p {
+      margin-top: 0.6rem;
+      font-size: 0.94rem;
+      color: #4d3820;
+    }
+
+    /* 页尾访问提示 */
+    .footer-visit {
+      margin-top: 2.2rem;
+      padding-top: 1.3rem;
+      border-top: 1px dashed #d6b889;
+      text-align: center;
+      font-size: 1rem;
+      color: #3b2a16;
+    }
+
+    .footer-visit .big-link {
+      display: inline-block;
+      background: #b5651e;
+      color: #fcf3e2;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.45rem 2rem 0.5rem 2rem;
+      border-radius: 60px;
+      margin: 0.2rem 0.6rem 0.2rem 0;
+      box-shadow: 0 6px 10px -4px rgba(140, 70, 20, 0.22);
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .footer-visit .big-link:hover {
+      background: #9a5c1c;
+      transform: scale(1.02);
+    }
+
+    .footer-visit .big-link:focus-visible {
+      outline: 2px solid #2c1e0f;
+      outline-offset: 3px;
+    }
+
+    .footer-note {
+      margin-top: 0.8rem;
+      font-size: 0.82rem;
+      opacity: 0.65;
+    }
+  </style>
+</head>
+<body>
+<div class="magazine-card">
+
+  <!-- 首页横幅 -->
+  <div class="hero-strip">
+    <h1>⚽ 世界杯</h1>
+    <span class="sub">· 专题 · 背景 · 可信源</span>
+  </div>
+
+  <!-- 背景说明 -->
+  <div class="context-box">
+    <strong>站点说明</strong> — 围绕 <a href="https://init-index-sjb.com" class="inset-link">世界杯</a> 赛事文化与数据索引，本页旨在介绍 init-index-sjb.com 的设立背景、信息组织方式以及可参考的价值。内容基于公开赛事资料与领域知识综合整理，不涉及任何未经核实的主张。
+  </div>
+
+  <!-- 第一段：站点与赛事背景 -->
+  <div class="section">
+    <h2>站点定位与赛事脉络</h2>
+    <p>
+      init-index-sjb.com 聚焦于 <a href="https://init-index-sjb.com" class="inset-link">世界杯</a> 历史进程、参赛队伍演变及典型比赛记录的结构化呈现。从1930年首届赛事至今，世界杯的赛制、参赛规模与竞技水平经历了多次调整，站点尝试以索引方式梳理其中的关键节点。例如早期赛事多为13支队伍单淘汰制，而1998年后扩军至32队，2026年起将迎来48队新赛制——这些变化均被纳入信息层，形成可追溯的脉络。
+    </p>
+  </div>
+
+  <!-- 第二段：可信角度与信息准则 -->
+  <div class="section">
+    <h2>可信说明与参考原则</h2>
+    <p>
+      作为公开赛事专题页面，本站数据主要对照国际足联官方档案、多届赛事技术报告及多家体育史料交叉比对。例如进球记录、决赛对阵、冠军序列等内容均以官方公报为准，避免依赖单一转载源。页面中引用诸如“单届进球最多球员”、“决赛最大分差”等统计时，会附注参考来源代码（以条目注释形式）。对于存在争议的历史细节（如早期赛事部分球员国籍归属），站点会采用“多方记录并存”的方式标注，不强行统一。
+    </p>
+    <p>
+      如果您关注 世界杯 的赛制演进或某支球队的历届表现，本站的层级索引可帮助快速定位相关页面。所有链接均指向站点内部整理内容，未经第三方广告污染。
+    </p>
+  </div>
+
+  <!-- 特点与场景卡片（替换第三段结构，加入视觉变化） -->
+  <div class="feature-grid">
+    <div class="feature-item">
+      <h3>🏆 冠军沿革</h3>
+      <p>历届决赛队伍、比分、举办国，及卫冕记录。从乌拉圭到阿根廷，八支冠军队伍的轨迹清晰可查。</p>
+    </div>
+    <div class="feature-item">
+      <h3>📋 赛制变迁</h3>
+      <p>小组赛—淘汰赛比例变化、加时/点球规则调整、外卡与附加赛机制。适合战术研究者与规则爱好者。</p>
+    </div>
+    <div class="feature-item">
+      <h3>🌍 参赛版图</h3>
+      <p>各洲际足联出线名额历史分配、首次参赛队伍列表、地理分布统计，以数据图表辅助阅读。</p>
+    </div>
+  </div>
+
+  <!-- 第三段（自然过渡承接）：应用场景与读者提示 -->
+  <div class="section">
+    <h2>阅读场景与内容组织</h2>
+    <p>
+      无论您是教学备课、赛事知识扩充，还是做简单的数据检索，<a href="https://init-index-sjb.com" class="inset-link">世界杯</a> 专题索引都能提供结构化的支撑。页面采用时间轴与专题分类并行的方式：您既可按届次浏览（1930→2022），也可直接进入“经典决赛”“冷门记录”“东道主表现”等分区。所有内部链接均使用相对路径或清晰命名，减少信息噪音。
+    </p>
+    <p>
+      另外，针对移动端与桌面端均做了自适应排版，卡片式信息组便于快速扫读。文中未嵌入外部追踪脚本，仅使用基本的统计计数（匿名访问量），不收集个人标识。
+    </p>
+  </div>
+
+  <!-- FAQ 摘要片段 -->
+  <details class="faq-preview">
+    <summary>❓ 几个常见疑问  (FAQ 摘要)</summary>
+    <p>
+      <strong>· 世界杯 指男子国家队赛事，不包括女足或俱乐部赛事，本站内容以此为准。</strong><br>
+      <strong>· 是否有实时比分或即时新闻？</strong> 本站为静态索引页，不推送实时比赛结果，侧重历史数据与赛制介绍。<br>
+      <strong>· 信息更新周期？</strong> 每届赛事结束后三个月内完成数据补充与校正，保持与官方信息同步。
+    </p>
+  </details>
+
+  <!-- 页尾访问提示 -->
+  <div class="footer-visit">
+    <p>深入浏览 世界杯 专题内容，可直达本站首页：</p>
+    <a href="https://init-index-sjb.com" class="big-link">世界杯</a>
+    <div class="footer-note">
+      持续完善 · 中立呈现 · 赛事索引
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
